@@ -9,12 +9,67 @@ function elementClass(clsName) {
 }
 
 elementId("emergencyNumbers").addEventListener("click", function (e) {
-  // increase Love in the nev bar
-  const checkHeart = e.target.className;
-  if (checkHeart.includes("heart")) {
+  const checkClass = e.target.className;
+
+  // increase Love Number in the nev bar
+  if (checkClass.includes("heart")) {
     let initialLove = Number(elementId("love").innerText);
     initialLove++;
-    console.log(initialLove);
     elementId("love").innerText = initialLove;
+  }
+
+  //   Call Buttons Functionality
+  if (checkClass.includes("callNow")) {
+    const getServiceName =
+      e.target.parentElement.parentElement.children[1].innerText;
+
+    const getServiceCallNumber =
+      e.target.parentElement.parentElement.children[3].innerText;
+
+    let getAllCoin = Number(elementId("coin").innerText);
+
+    const currentTime = new Date().toLocaleTimeString();
+
+    // redure coin in every call
+    getAllCoin -= 20;
+    elementId("coin").innerText = getAllCoin;
+
+    // show alert if coin is less then 0
+    if (getAllCoin < 0) {
+      alert("আপনার যথেষ্ট পরিমাণে কয়েন নেই। কল করতে কমপক্ষে ২০টি কয়েন প্রয়োজন");
+      elementId("coin").innerText = 0;
+      return;
+    }
+
+    // show alert message in every call
+    alert(
+      "📞 " + " Calling to  " + getServiceName + "  " + getServiceCallNumber
+    );
+
+    // create Call History
+    const getHistoryParent = elementId("user-selected");
+    const makeHistory = document.createElement("div");
+    makeHistory.innerHTML = `
+        <div
+              class="flex justify-between items-center bg-[#FAFAFA] text-[18px] px-3 py-4 mb-4 rounded-lg"
+            >
+              <div>
+                <p class="text-black">${getServiceName}</p>
+                <p class="text-[#5C5C5C]">${getServiceCallNumber}</p>
+              </div>
+              <!-- time -->
+              <div>
+                <p>${currentTime}</p>
+              </div>
+        </div>
+    `;
+
+    // append the history
+    getHistoryParent.appendChild(makeHistory);
+
+    // clear all the history if user click clear button
+    elementId("all-clear").addEventListener("click", function () {
+      getHistoryParent.innerHTML = "";
+    });
   }
 });
