@@ -1,1 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
+
+@layer utilities {
+  .cs-font {
+    font-family: "Hind Madurai", sans-serif;
+  }
+}

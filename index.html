@@ -12,41 +12,57 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="tailwind.config.css" />
   </head>
-  <body>
-    <header
-      class="w-11/12 mx-auto flex max-lg:flex-col max-lg:gap-5 max-lg:py-5 justify-between items-center min-h-28"
-    >
-      <!-- logo -->
-      <div class="flex items-center gap-2">
-        <img src="./assets/logo.png" class="h-12" alt="" />
-        <h1 class="text-[#006747] text-2xl font-bold">
-          Emergency <br />
-          Service
-        </h1>
-      </div>
-      <!-- love-coin-copy -->
-      <div class="flex gap-5">
-        <!-- Love div -->
-        <div
-          class="flex justify-center items-center rounded-[50px] gap-2 w-32 h-14 bg-[#41ff6b1a]"
-        >
-          <span id="love" class="font-bold text-2xl">0</span>
-          <img src="./assets/heart.png" class="w-8 h-8" alt="" />
+  <body class="cs-font">
+    <header>
+      <!-- nav bar -->
+      <nav
+        class="w-11/12 mx-auto flex max-lg:flex-col max-lg:gap-5 max-lg:py-5 justify-between items-center min-h-28"
+      >
+        <!-- logo -->
+        <div class="flex items-center gap-2">
+          <img src="./assets/logo.png" class="h-12" alt="bangladesh" />
+          <h1 class="text-[#006747] text-2xl font-bold">
+            Emergency <br />
+            Service
+          </h1>
         </div>
-        <!-- coin -->
-        <div
-          class="flex justify-center items-center rounded-[50px] gap-2 w-32 h-14 bg-[#41ff6b1a]"
-        >
-          <span id="coin" class="font-bold text-2xl">100</span>
-          <img src="./assets/coin.png" class="w-8 h-8" alt="" />
+        <!-- love-coin-copy -->
+        <div class="flex gap-5">
+          <!-- Love div -->
+          <div
+            class="flex justify-center items-center rounded-[50px] gap-2 w-32 h-14 bg-[#41ff6b1a]"
+          >
+            <span id="love" class="font-bold text-2xl">0</span>
+            <img src="./assets/heart.png" class="w-8 h-8" alt="" />
+          </div>
+          <!-- coin -->
+          <div
+            class="flex justify-center items-center rounded-[50px] gap-2 w-32 h-14 bg-[#41ff6b1a]"
+          >
+            <span id="coin" class="font-bold text-2xl">100</span>
+            <img src="./assets/coin.png" class="w-8 h-8" alt="" />
+          </div>
+          <!-- copy btn -->
+          <button
+            class="btn btn-lg rounded-[50px] px-9 border-0 bg-[#00a63e] text-white"
+          >
+            <span>2</span>
+            Copy
+          </button>
         </div>
-        <!-- copy btn -->
-        <button
-          class="btn btn-lg rounded-[50px] px-9 border-0 bg-[#00a63e] text-white"
-        >
-          <span>2</span>
-          Copy
-        </button>
+      </nav>
+      <!-- banner -->
+      <div
+        class="banner bg-[linear-gradient(90deg,#013223,#006747,#013223)] text-white min-h-64 flex flex-col justify-center items-center"
+      >
+        <img src="./assets/logo.png" class="w-24 h-24" alt="bangladesh" />
+        <div class="text-center">
+          <h2 class="font-semibold text-[40px]">জরুরি সেবা ডিরেক্টরি</h2>
+          <p class="text-[20px] font-semibold">
+            Government Emergency Services at Your Fingertip – A Project by
+            Government of the People’s Republic of Bangladesh
+          </p>
+        </div>
       </div>
     </header>
     <script src="script.js"></script>
