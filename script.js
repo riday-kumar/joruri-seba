@@ -72,4 +72,33 @@ elementId("emergencyNumbers").addEventListener("click", function (e) {
       getHistoryParent.innerHTML = "";
     });
   }
+
+  //   Copy Button Functionality
+  if (checkClass.includes("copy")) {
+    const emServiceNum =
+      e.target.closest("div").parentElement.children[3].innerText;
+
+    // increase copy quantity
+    let copiedNumber = Number(elementId("copy-quantity").innerText);
+    copiedNumber++;
+    elementId("copy-quantity").innerText = copiedNumber;
+
+    // show alert msg and do copy in the clip board
+    navigator.clipboard
+      .writeText(emServiceNum)
+      .then(() => {
+        alert("নম্বর কপি হয়েছে : " + emServiceNum);
+      })
+      .catch(() => {
+        // fallback method (পুরোনো ব্রাউজারের জন্য)
+        const newContainer = document.createElement("textarea");
+        newContainer.value = emServiceNum;
+        document.body.appendChild(newContainer);
+        newContainer.select();
+        document.execCommand("copy");
+        document.body.removeChild(newContainer);
+
+        alert("নম্বর কপি হয়েছে : " + emServiceNum);
+      });
+  }
 });
